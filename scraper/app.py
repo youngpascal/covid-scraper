@@ -1,5 +1,5 @@
 
-from spiders.covid_spider import CovidSpider
+from scraper.spiders.covid_spider import CovidSpider
 import json
 
 from klein import route, run, Klein
