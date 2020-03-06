@@ -53,3 +53,4 @@ def schedule(request):
     deferred.addCallback(return_spider_output)
     return deferred
 
+application.run("0.0.0.0", 8000)
