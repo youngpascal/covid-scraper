@@ -45,7 +45,7 @@ def return_spider_output(output):
     # you may want to use Scrapy JSON serializer here
     return json.dumps([dict(item) for item in output])
 
-@application.route("/")
+@application.route("/api")
 def schedule(request):
     settings = get_project_settings()
     runner = MyCrawlerRunner(settings)
