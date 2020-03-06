@@ -2,11 +2,12 @@
 from spiders.covid_spider import CovidSpider
 import json
 
-from klein import route, run
+from klein import route, run, Klein
 from scrapy import signals
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.project import get_project_settings
 
+app = Klein()
 
 class MyCrawlerRunner(CrawlerRunner):
     """
@@ -44,7 +45,7 @@ def return_spider_output(output):
     # you may want to use Scrapy JSON serializer here
     return json.dumps([dict(item) for item in output])
 
-@route("/api")
+@app.route("/api")
 def schedule(request):
     settings = get_project_settings()
     runner = MyCrawlerRunner(settings)
@@ -52,5 +53,5 @@ def schedule(request):
     deferred.addCallback(return_spider_output)
     return deferred
 
-
-run("localhost", 8080)
+if __name__ == '__main__':  
+    app.run("localhost", 8080)
