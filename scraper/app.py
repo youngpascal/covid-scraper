@@ -7,7 +7,7 @@ from scrapy import signals
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.project import get_project_settings
 
-app = Klein()
+application = Klein()
 
 class MyCrawlerRunner(CrawlerRunner):
     """
@@ -45,7 +45,7 @@ def return_spider_output(output):
     # you may want to use Scrapy JSON serializer here
     return json.dumps([dict(item) for item in output])
 
-@app.route("/api")
+@application.route("/")
 def schedule(request):
     settings = get_project_settings()
     runner = MyCrawlerRunner(settings)
@@ -53,5 +53,3 @@ def schedule(request):
     deferred.addCallback(return_spider_output)
     return deferred
 
-if __name__ == '__main__':  
-    app.run("0.0.0.0", 8000)

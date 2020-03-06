@@ -10,4 +10,6 @@ w3lib==1.21.0
 wcwidth==0.1.8
 webencodings==0.5.1
 websocket-client==0.40.0
+Werkzeug==0.16.1
+
 

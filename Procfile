@@ -1,1 +1,1 @@
-web: gunicorn scraper.app:app -b 0.0.0.0:8000
+web: gunicorn wsgi:app -b 0.0.0.0:8000
