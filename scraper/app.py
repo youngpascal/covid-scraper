@@ -1,13 +1,15 @@
 
-from scraper.spiders.covid_spider import CovidSpider
+from spiders.covid_spider import CovidSpider
 import json
-
+import os
 from klein import route, run, Klein
 from scrapy import signals
 from scrapy.crawler import CrawlerRunner
 from scrapy.utils.project import get_project_settings
 
+
 application = Klein()
+PORT = int(os.environ.get('PORT', 8080))
 
 class MyCrawlerRunner(CrawlerRunner):
     """
@@ -53,4 +55,8 @@ def schedule(request):
     deferred.addCallback(return_spider_output)
     return deferred
 
-application.run("0.0.0.0", 8000)
+
+application.run("localhost", 8080)
+
+
+
