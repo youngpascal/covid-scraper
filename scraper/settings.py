@@ -14,7 +14,16 @@ BOT_NAME = 'covid'
 SPIDER_MODULES = ['scraper.spiders']
 NEWSPIDER_MODULE = 'scraper.spiders'
 
+DATABASE = {
+    'drivername': 'postgres',
+    'host': 'localhost',
+    'port': '5432',
+    'username': 'postgres',
+    'password': 'myPassword',
+    'database': 'scrape'
+}
 
+ITEM_PIPELINES = {'scraper.pipelines.TutorialPipeline': 300}
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
 

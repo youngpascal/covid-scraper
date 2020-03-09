@@ -8,7 +8,20 @@
 import scrapy
 
 
-class TutorialItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class CountryTest(scrapy.Item):
+    name = scrapy.Field()
+    total_cases = scrapy.Field()
+    new_cases = scrapy.Field()
+    total_deaths = scrapy.Field()
+    new_deaths = scrapy.Field()
+    active_cases = scrapy.Field()
+    total_recovered = scrapy.Field()
+    condition = scrapy.Field()
+    percentage_changed_cases = scrapy.Field()
+    percentage_changed_deaths = scrapy.Field()
+    date_updated = scrapy.Field()
+
+class TotalData(scrapy.Item):
+    total_covid_cases = scrapy.Field()
+    total_covid_deaths = scrapy.Field()
+    total_covid_recovered = scrapy.Field()
