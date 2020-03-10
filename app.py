@@ -3,16 +3,13 @@ from scraper.models import Data, db_connect, JsonData
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import inspect
 from flask import jsonify 
-from flask_heroku import Heroku
 import json
-
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/pre-registration'
-
-
+import os
+import psycopg2
+import scraper.settings
 
 app = Flask(__name__)
-heroku = Heroku(app)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_pyfile('scraper.settings.py')
 
 
 
