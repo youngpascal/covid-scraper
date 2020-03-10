@@ -8,13 +8,13 @@ import json
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/pre-registration'
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
 app = Flask(__name__)
 heroku = Heroku(app)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
-app = Flask(__name__)
 
 engine = db_connect()
 Session = sessionmaker(bind=engine)
