@@ -9,7 +9,7 @@ import psycopg2
 import scraper.settings
 
 app = Flask(__name__)
-app.config.from_pyfile('scraper.settings.py')
+app.config.from_pyfile('scraper/settings.py')
 
 
 
