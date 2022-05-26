@@ -3,7 +3,7 @@ jsonschema==3.2.0
 python-dateutil==2.8.1
 requests==2.13.0
 Scrapy==2.0.0
-Twisted==19.10.0
+Twisted==22.4.0
 typing==3.7.4.1
 w3lib==1.21.0
 wcwidth==0.1.8
